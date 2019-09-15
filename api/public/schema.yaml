@@ -1,12 +1,143 @@
 openapi: "3.0.0"
 info:
   title: Example booking API
-  version: 2.0.0
+  version: 1.0.0
+servers:
+  - url: https://localhost:8433/v1
+  - url: http://localhost:8080/v1
+schemes:
+  - http
+  - https
 paths:
+  /properties:
+    get:
+      operationId: getProperties
+      summary: Gets available properties
+      parameters:
+        - name: at
+          in: query
+          description: Geolocation to retrieve properties for in `[latitude],[longitude]` format
+          example: "48.1366,11.577"
+          required: true
+          schema:
+            type: string
+            pattern: '^\d+(\.\d+)?,\d+(\.\d+)?$'
+      responses:
+        "200":
+          description: List of properties
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Property"
+  /properties/{propertyId}/bookings:
+    get:
+      operationId: getPropertyBookings
+      summary: Gets bookings for property
+      parameters:
+        - name: propertyId
+          in: path
+          description: ID of property
+          example: hotelbeach
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of bookings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BookingWithUser"
+  /bookings:
+    get:
+      operationId: getBookings
+      summary: Gets bookings
+      responses:
+        "200":
+          description: List of bookings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BookingWithUser"
+  /users/{userId}/bookings:
+    get:
+      operationId: getUserBookings
+      summary: Gets bookings for user
+      parameters:
+        - name: userId
+          in: path
+          description: ID of user
+          example: joe
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of bookings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Booking"
   /test:
     get:
       operationId: test
       summary: Test endpoint
       responses:
-        '200':
+        "200":
           description: Test response
+components:
+  schemas:
+    Booking:
+      type: object
+      properties:
+        id:
+          type: string
+        property_id:
+          type: string
+        property_name:
+          type: string
+        city:
+          type: string
+      example:
+        id: booking-1
+        property_id: hotelbeach
+        property_name: Hotel at the beach
+        city: Venice
+    BookingWithUser:
+      allOf:
+        - $ref: "#/components/schemas/Booking"
+        - type: object
+          properties:
+            user:
+              $ref: "#/components/schemas/User"
+    Property:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        city:
+          type: string
+      example:
+        id: hotelbeach
+        name: Hotel at the beach
+        city: Venice
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      example:
+        id: joe
+        name: Joe Fisher

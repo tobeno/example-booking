@@ -18,7 +18,7 @@ Requirements:
 This project consists of two packages, the [API](api/README.md) and the [Web-App](web-app/README.md). 
 See their README.md files for further details on setup and usage.
 
-## Development
+## Development history
 
 1. Verify requirements
 2. Getting familiar with [HERE Places API](https://developer.here.com/documentation/places)
@@ -30,3 +30,4 @@ See their README.md files for further details on setup and usage.
   - Jest for testing
   - OpenAPI v3 for documentation
   - Express as server
+4. Initial API specification
