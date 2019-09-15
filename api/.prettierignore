@@ -1,0 +1,7 @@
+dist/**/*.js
+node_modules/**
+.*
+*.cert
+*.key
+package.json
+package-lock.json
