@@ -4,8 +4,16 @@ import querystring from "querystring";
 import { StatusCodeError } from "request-promise-native/errors";
 
 export interface HerePlacesItem {
+  /** Unique identifier */
   id: string;
+  /** Title of the item */
   title: string;
+  /** Distance from given location in meters */
+  distance?: number;
+  /** Description of location as free text (e.g. the address) */
+  vicinity?: string;
+  /** URL to details endpoint */
+  href: string;
 }
 
 class HerePlacesClient {
@@ -46,6 +54,7 @@ class HerePlacesClient {
       ...parameters,
       app_id: this.appId,
       app_code: this.appCode,
+      tf: "plain", // Use plain text in rich values like vicinity
     })}`;
 
     let response;

@@ -8,10 +8,17 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ApiClientProperty } from "../../clients/ApiClient";
+import Nl2Br from "../Nl2Br";
 
 const useStyles = makeStyles(theme => ({
   root: {
     marginTop: theme.spacing(2),
+  },
+  cardActions: {
+    justifyContent: "space-between",
+  },
+  cardDistance: {
+    paddingRight: theme.spacing(1),
   },
 }));
 
@@ -30,15 +37,22 @@ const PropertyListItem: React.FC<Props> = ({ className = "", item }) => {
           {item.name}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          Somestreet 42
-          <br />
-          12345 Anywhere
+          <Nl2Br text={item.location} />
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions className={classes.cardActions}>
         <Button size="small" color="primary">
           Book now
         </Button>
+        {item.distance && (
+          <Typography
+            className={classes.cardDistance}
+            variant="body2"
+            color="textSecondary"
+          >
+            {item.distance} m
+          </Typography>
+        )}
       </CardActions>
     </Card>
   );

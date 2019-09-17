@@ -17,7 +17,6 @@ describe("HerePlacesClient", (): void => {
 
   it("browses location", async (): Promise<void> => {
     const scope = nock("http://example.com")
-      .log(console.log)
       .get("/browse")
       .query({
         at: "48.1366,11.5771",
@@ -25,6 +24,7 @@ describe("HerePlacesClient", (): void => {
         size: "2",
         app_id: "my-id",
         app_code: "my-code",
+        tf: "plain",
       })
       .reply(200, responseBrowse);
 
@@ -38,6 +38,8 @@ describe("HerePlacesClient", (): void => {
     expect(items[0]).toMatchObject({
       id: expect.any(String),
       title: expect.any(String),
+      distance: expect.any(Number),
+      vicinity: expect.any(String),
     });
 
     scope.done();
@@ -49,6 +51,7 @@ describe("HerePlacesClient", (): void => {
       .query({
         app_id: "my-id",
         app_code: "my-code",
+        tf: "plain",
       })
       .reply(400, responseError);
 

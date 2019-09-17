@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nl2Br renders text with newlines 1`] = `
+<div>
+  A nice text
+  <br />
+  with even more text
+</div>
+`;
+
+exports[`Nl2Br renders text without newlines 1`] = `
+<div>
+  A nice text
+</div>
+`;

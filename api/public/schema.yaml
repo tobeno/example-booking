@@ -130,12 +130,18 @@ components:
           type: string
         name:
           type: string
-        city:
+        distance:
+          type: integer
+          format: int32
+          description: Distance from given location in meters
+        location:
           type: string
+          description: Textual description of property location
       example:
         id: hotelbeach
         name: Hotel at the beach
-        city: Venice
+        distance: 102
+        location: "Beach\n12345 Beachington"
     User:
       type: object
       properties:

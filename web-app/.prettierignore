@@ -1,4 +1,5 @@
 node_modules/**
 .*
+*.snap
 package.json
 package-lock.json

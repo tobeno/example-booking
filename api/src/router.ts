@@ -19,9 +19,13 @@ router.get(
         data: items.map((item: HerePlacesItem): {
           id: string;
           name: string;
+          distance?: number;
+          location: string;
         } => ({
           id: item.id,
           name: item.title,
+          distance: item.distance,
+          location: item.vicinity || "",
         })),
       });
     },

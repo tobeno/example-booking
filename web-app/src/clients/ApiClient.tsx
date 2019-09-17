@@ -3,6 +3,8 @@ import qs from "qs";
 export interface ApiClientProperty {
   id: string;
   name: string;
+  distance?: number;
+  location: string;
 }
 
 class ApiClient {
