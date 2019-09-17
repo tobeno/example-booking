@@ -1,3 +1,3 @@
-.App {
-  text-align: center;
+.App__content {
+  padding: var(--app-spacer-3) 0;
 }

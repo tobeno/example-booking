@@ -9,6 +9,7 @@
     "@types/react-dom": "16.9.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1"
   },
   "scripts": {
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.1.4",
+    "@types/react-router-dom": "^4.3.5",
     "@types/testing-library__react": "^9.1.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.0",

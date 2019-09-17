@@ -1,9 +1,9 @@
 import React from "react";
-import App from "./App";
 import { render } from "@testing-library/react";
+import HomePage from "./HomePage";
 
-describe("App", (): void => {
+describe("HomePage", (): void => {
   it("renders without crashing", (): void => {
-    render(<App />);
+    render(<HomePage />);
   });
 });
