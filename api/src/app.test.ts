@@ -44,9 +44,10 @@ describe("App", (): void => {
       .expect("Content-Type", /^application\/json/)
       .expect(200);
 
-    expect(response.body).toBeInstanceOf(Array);
-    expect(response.body.length).toBeGreaterThan(0);
-    expect(response.body[0]).toMatchObject({
+    expect(response.body).toHaveProperty("data");
+    expect(response.body.data).toBeInstanceOf(Array);
+    expect(response.body.data.length).toBeGreaterThan(0);
+    expect(response.body.data[0]).toMatchObject({
       id: expect.any(String),
       name: expect.any(String),
     });

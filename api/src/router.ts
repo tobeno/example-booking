@@ -15,12 +15,15 @@ router.get(
 
       const items = await herePlacesClient.browse(req.query.at, ["hotel"], 50);
 
-      res.json(
-        items.map((item: HerePlacesItem): { id: string; name: string } => ({
+      res.json({
+        data: items.map((item: HerePlacesItem): {
+          id: string;
+          name: string;
+        } => ({
           id: item.id,
           name: item.title,
         })),
-      );
+      });
     },
   ),
 );

@@ -9,7 +9,9 @@ describe("ApiClient", (): void => {
 
   it("gets properties", async (): Promise<void> => {
     fetchMock.mockResponseOnce(
-      JSON.stringify([{ id: "hotelbeach", name: "Hotel at the beach" }]),
+      JSON.stringify({
+        data: [{ id: "hotelbeach", name: "Hotel at the beach" }],
+      }),
     );
 
     const properties = await client.getProperties("48.1366,11.5771");

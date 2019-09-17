@@ -24,17 +24,21 @@ class ApiClient {
     const response = await fetch(
       `${this.baseUrl}${path}${query ? `?${query}` : ""}`,
     );
-    const data = await response.json();
+    const responseBody = await response.json();
 
     if (response.status !== 200) {
       throw new Error(
         `Request to path ${path} failed with status code ${response.status}. ${
-          data.message ? data.message : ""
+          responseBody.message ? responseBody.message : ""
         }`,
       );
     }
 
-    return data;
+    if (!responseBody.data) {
+      throw new Error(`Request to path ${path} returned invalid response.`);
+    }
+
+    return responseBody.data;
   }
 }
 
