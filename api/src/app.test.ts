@@ -13,10 +13,15 @@ describe("App", (): void => {
       .expect(200);
   });
 
-  it("handles test requests", async (): Promise<Response> => {
-    return request(createApp())
-      .get("/test")
+  it("handles unknown requests", async (): Promise<void> => {
+    const response = await request(createApp())
+      .get("/notexisting")
       .expect("Content-Type", /^application\/json/)
-      .expect(200);
+      .expect(404);
+
+    expect(response.body).toMatchObject({
+      status: 404,
+      message: expect.any(String),
+    })
   });
 });
