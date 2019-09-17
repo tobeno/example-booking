@@ -1,5 +1,13 @@
-import { ErrorRequestHandler, RequestHandler } from "express";
+import { ErrorRequestHandler, NextFunction, RequestHandler } from "express";
 import { Request, Response } from "express";
+
+export const asyncMiddleware = (fn: RequestHandler): RequestHandler => (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): void => {
+  Promise.resolve(fn(req, res, next)).catch(next);
+};
 
 export const errorHandler = (): ErrorRequestHandler => {
   return (err: any, req: Request, res: Response, next: NextFunction): void => {

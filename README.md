@@ -31,3 +31,4 @@ See their README.md files for further details on setup and usage.
   - OpenAPI v3 for documentation
   - Express as server
 4. Initial API specification
+5. Add /v1/properties endpoint and HERE Places client

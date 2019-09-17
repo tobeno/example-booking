@@ -86,13 +86,6 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Booking"
-  /test:
-    get:
-      operationId: test
-      summary: Test endpoint
-      responses:
-        "200":
-          description: Test response
 components:
   schemas:
     Booking:
