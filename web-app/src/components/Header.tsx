@@ -16,9 +16,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-interface Props {
+type Props = {
   className?: string;
-}
+};
 
 const Header: React.FC<Props> = ({ className = "" }) => {
   const classes = useStyles();

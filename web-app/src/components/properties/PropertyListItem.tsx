@@ -14,9 +14,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-interface Props {
+type Props = {
   className?: string;
-}
+};
 
 const PropertyListItem: React.FC<Props> = ({ className = "" }) => {
   const classes = useStyles();

@@ -8,9 +8,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-interface Props {
+type Props = {
   className?: string;
-}
+};
 
 const HomePage: React.FC<Props> = ({ className = "" }) => {
   const classes = useStyles();

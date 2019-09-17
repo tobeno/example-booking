@@ -2,9 +2,9 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import PropertyListItem from "./PropertyListItem";
 
-interface Props {
+type Props = {
   className?: string;
-}
+};
 
 const PropertyList: React.FC<Props> = ({ className = "" }) => {
   return (
