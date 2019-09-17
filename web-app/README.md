@@ -5,7 +5,7 @@ This is a simple dummy booking portal.
 ## Requirements
 
 - NodeJS >= 10 (including NPM)
-- Recent browser version (CSS grid and CSS variables are used)
+- Recent browser version
 
 ## Installation
 

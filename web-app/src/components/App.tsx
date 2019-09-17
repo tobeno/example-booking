@@ -1,14 +1,15 @@
 import React from "react";
-import "./App.css";
-import Router from "./Router";
+import { ThemeProvider } from "@material-ui/styles";
+import Header from "./Header";
+import theme from "../theme";
+import Page from "./Page";
 
 const App: React.FC = () => {
   return (
-    <>
-      <div className="App__content">
-        <Router />
-      </div>
-    </>
+    <ThemeProvider theme={theme}>
+      <Header />
+      <Page />
+    </ThemeProvider>
   );
 };
 

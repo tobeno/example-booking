@@ -1,8 +1,25 @@
 import React from "react";
-import "./HomePage.css";
+import { Container, makeStyles } from "@material-ui/core";
+import PropertyList from "../properties/PropertyList";
 
-const HomePage: React.FC = () => {
-  return <div className="HomePage">Booking example</div>;
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginTop: theme.spacing(2),
+  },
+}));
+
+interface Props {
+  className?: string;
+}
+
+const HomePage: React.FC<Props> = ({ className = "" }) => {
+  const classes = useStyles();
+
+  return (
+    <Container className={[classes.root, className].join(" ")} maxWidth="lg">
+      <PropertyList />
+    </Container>
+  );
 };
 
 export default HomePage;
