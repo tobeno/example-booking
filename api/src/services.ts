@@ -1,4 +1,4 @@
-import HerePlacesClient from "./clients/here/places";
+import HerePlacesClient from "./clients/HerePlacesClient";
 
 let herePlacesUrl = process.env.APP_HERE_PLACES_URL;
 let herePlacesAppId = process.env.APP_HERE_PLACES_APP_ID;

@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { herePlacesClient } from "./services";
-import { HerePlacesItem } from "./clients/here/places";
+import { HerePlacesItem } from "./clients/HerePlacesClient";
 import { asyncMiddleware } from "./middlewares";
 
 const router = express.Router();

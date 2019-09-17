@@ -1,7 +1,7 @@
-import HerePlacesClient from "./places";
+import HerePlacesClient from "./HerePlacesClient";
 import nock from "nock";
-import responseBrowse from "./__fixtures__/responses/browse.json";
-import responseError from "./__fixtures__/responses/error.json";
+import responseBrowse from "./__fixtures__/here-places/responses/browse.json";
+import responseError from "./__fixtures__/here-places/responses/error.json";
 
 describe("HerePlacesClient", (): void => {
   const client = new HerePlacesClient("http://example.com", "my-id", "my-code");

@@ -1,0 +1,71 @@
+{
+  "results": {
+    "next": "https://places.cit.api.here.com/places/v1/browse;context=Y2F0PWhvdGVsJmZsb3ctaWQ9ZDViMTg0YzQtOGY4ZC01NzRlLWFmNDQtZTBkOGZmYjVmMDgyXzE1Njg3MjE5MTM4MzRfODMyNl83MDM1Jm9mZnNldD0yJnNpemU9Mg?at=48.1366%2C11.5771&app_id=Te2foJyXNryBFyg09a2A&app_code=NrLohl164Mwwenkc_RmT7w",
+    "items": [
+      {
+        "position": [48.13677, 11.57699],
+        "distance": 21,
+        "title": "Staraya Ratusha (Myunkhen)",
+        "averageRating": 0.0,
+        "category": {
+          "id": "hotel",
+          "title": "Hotel",
+          "href": "https://places.cit.api.here.com/places/v1/categories/places/hotel?app_id=Te2foJyXNryBFyg09a2A&app_code=NrLohl164Mwwenkc_RmT7w",
+          "type": "urn:nlp-types:category",
+          "system": "places"
+        },
+        "icon": "https://download.vcdn.cit.data.here.com/p/d/places2_stg/icons/categories/01.icon",
+        "vicinity": "Marienplatz<br/>80331 Munich",
+        "having": [],
+        "type": "urn:nlp-types:place",
+        "href": "https://places.cit.api.here.com/places/v1/places/27660lbi-3c76b74cf52706ab7ffab1da9989d0ac;context=Zmxvdy1pZD1kNWIxODRjNC04ZjhkLTU3NGUtYWY0NC1lMGQ4ZmZiNWYwODJfMTU2ODcyMTkxMzgzNF84MzI2XzcwMzUmcmFuaz0w?app_id=Te2foJyXNryBFyg09a2A&app_code=NrLohl164Mwwenkc_RmT7w",
+        "id": "27660lbi-3c76b74cf52706ab7ffab1da9989d0ac",
+        "alternativeNames": [
+          {
+            "name": "Старая Ратуша (Мюнхен)",
+            "language": "ru"
+          }
+        ]
+      },
+      {
+        "position": [48.13737, 11.57794],
+        "distance": 106,
+        "title": "Alter Hof",
+        "averageRating": 0.0,
+        "category": {
+          "id": "hotel",
+          "title": "Hotel",
+          "href": "https://places.cit.api.here.com/places/v1/categories/places/hotel?app_id=Te2foJyXNryBFyg09a2A&app_code=NrLohl164Mwwenkc_RmT7w",
+          "type": "urn:nlp-types:category",
+          "system": "places"
+        },
+        "icon": "https://download.vcdn.cit.data.here.com/p/d/places2_stg/icons/categories/01.icon",
+        "vicinity": "Sparkassenstraße<br/>80331 Munich",
+        "having": [],
+        "type": "urn:nlp-types:place",
+        "href": "https://places.cit.api.here.com/places/v1/places/276u281z-5cb1a4058f834bc6b1061c36b400162b;context=Zmxvdy1pZD1kNWIxODRjNC04ZjhkLTU3NGUtYWY0NC1lMGQ4ZmZiNWYwODJfMTU2ODcyMTkxMzgzNF84MzI2XzcwMzUmcmFuaz0x?app_id=Te2foJyXNryBFyg09a2A&app_code=NrLohl164Mwwenkc_RmT7w",
+        "id": "276u281z-5cb1a4058f834bc6b1061c36b400162b"
+      }
+    ]
+  },
+  "search": {
+    "context": {
+      "location": {
+        "position": [48.1366, 11.5771],
+        "address": {
+          "text": "Viktualienmarkt<br/>Altstadt, 80331 Munich<br/>Germany",
+          "street": "Viktualienmarkt",
+          "postalCode": "80331",
+          "district": "Altstadt",
+          "city": "Munich",
+          "county": "Munich",
+          "stateCode": "Bavaria",
+          "country": "Germany",
+          "countryCode": "DEU"
+        }
+      },
+      "type": "urn:nlp-types:place",
+      "href": "https://places.cit.api.here.com/places/v1/places/loc-dmVyc2lvbj0xO3RpdGxlPVZpa3R1YWxpZW5tYXJrdDtsYXQ9NDguMTM2Njtsb249MTEuNTc3MTtzdHJlZXQ9VmlrdHVhbGllbm1hcmt0O2NpdHk9TXVuaWNoO3Bvc3RhbENvZGU9ODAzMzE7Y291bnRyeT1ERVU7ZGlzdHJpY3Q9QWx0c3RhZHQ7c3RhdGVDb2RlPUJhdmFyaWE7Y291bnR5PU11bmljaDtjYXRlZ29yeUlkPXN0cmVldC1zcXVhcmU7c291cmNlU3lzdGVtPWludGVybmFs;context=c2VhcmNoQ29udGV4dD0x?app_id=Te2foJyXNryBFyg09a2A&app_code=NrLohl164Mwwenkc_RmT7w"
+    }
+  }
+}
