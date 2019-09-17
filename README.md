@@ -12,6 +12,24 @@ Requirements:
 - All booking requests are available via a public REST API
   - By user
   - By property
+  
+Not defined in challenge:
+- Load to be handled -> Assume prototype without load
+- Persistence of data -> Assume basic persistence needed
+- Which booking information needed? -> Assume only dummy data is collected (name of customer)
+- What data of properties displayed? -> Assume only basic information (name and address) is displayed
+- How many properties should be listed -> Assume max. 50 properties are displayed without pagination
+- Should the service run on an actual server? -> Assume local prototype, no docker or CI setup
+
+Expected result:
+Basic working prototype consisting of an API and a web client that can be used locally.
+It is not intended for production use in any way.
+The frontend is only rudimentary, main focus is the API communication.
+
+Expected quality:
+- Testing: Critical parts covered with unit and integration tests, no end-to-end tests
+- Code: Automatically formatted using best practices (enforced by eslint and prettier)
+- Architecture: Clean structure that would allow future extension, but with focus on simplicity
 
 ## Components
 
