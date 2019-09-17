@@ -1,0 +1,18 @@
+:root {
+  /* Colors */
+  --app-color-primary: #8a9c7d;
+  --app-color-accent-light: #89a94d;
+  --app-color-accent-dark: #796057;
+  --app-color-shade-light: #fbf9f9;
+  --app-color-shade-dark: #211728;
+
+  /* Typography */
+  --app-text-base-font-size: 12px;
+
+  /* Spacing */
+  --app-spacer-1: 0.25rem;
+  --app-spacer-2: 0.5rem;
+  --app-spacer-3: 1rem;
+  --app-spacer-4: 1.5rem;
+  --app-spacer-5: 3rem;
+}

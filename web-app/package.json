@@ -1,0 +1,45 @@
+{
+  "name": "@tobeno/example-booking-web-app",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.tsx",
+  "dependencies": {
+    "@types/jest": "24.0.18",
+    "@types/react": "16.9.2",
+    "@types/react-dom": "16.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "3.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "npm run lint --fix",
+    "prettier": "prettier * src/** --write",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.1.4",
+    "@types/testing-library__react": "^9.1.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.3 && <3.6.0"
+  }
+}
