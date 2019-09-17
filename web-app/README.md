@@ -1,4 +1,4 @@
-# API
+# Web-App
 
 This is a simple dummy booking portal.
 
@@ -10,6 +10,7 @@ This is a simple dummy booking portal.
 ## Installation
 
 - Install dependencies using `npm install`
+- Copy the _.env.dist_ file to _.env_ to define the variables required by the dev server
 
 ## CLI
 

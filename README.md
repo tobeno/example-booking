@@ -1,8 +1,8 @@
-# Example: Simple booking application
+# Example: Simple Booking Application
 
-This is a demo application developed as a code challenge.
+This is a personal demo application developed as a code challenge.
 
-## Goal
+## Challenge
 
 Allow users to find properties (e.g. hotels) around them and submit booking requests for them.
 
@@ -23,16 +23,19 @@ Not defined in challenge:
 - What data of properties displayed? -> Assume only basic information (name and address) is displayed
 - How many properties should be listed -> Assume max. 50 properties are displayed without pagination
 - Should the service run on an actual server? -> Assume local prototype, no docker or CI setup
+- Which languages should be supported? -> Assume no localization support needed for now
 
-Expected result:
+## Goals
+
 Basic working prototype consisting of an API and a web client that can be used locally.
 It is not intended for production use in any way.
-The frontend is only rudimentary, main focus is the API communication.
+The frontend is only rudimentary, main focus is the full user flow and a clean setup.
 
-Expected quality:
+Quality:
 
 - Testing: Critical parts covered with unit and integration tests, no end-to-end tests
 - Code: Automatically formatted using best practices (enforced by eslint and prettier)
+- Typing: Fully typed using TypeScript
 - Architecture: Clean structure that would allow future extension, but with focus on simplicity
 
 ## Components
@@ -40,7 +43,17 @@ Expected quality:
 This project consists of two packages, the [API](api/README.md) and the [Web-App](web-app/README.md).
 See their README.md files for further details on setup and usage.
 
-## Development history
+## Usage
+
+Follow the setup instructions in API and Web-App and start both servers using `npm run start`.
+
+Verify that the API is working correctly by accessing http://localhost:8080/v1/properties?at=48.1366,11.5771.
+If everything is setup correctly, this endpoint should return a list of properties near the given coordinated.
+
+After access the web client using http://localhost:3000/ and feel free to look around.
+There is no actual booking involved, so no worries about clicking any buttons.
+
+## Development History
 
 1. Verify requirements
 2. Getting familiar with [HERE Places API](https://developer.here.com/documentation/places)
@@ -60,3 +73,4 @@ See their README.md files for further details on setup and usage.
    - Prettier and eslint for code quality
    - Material-UI for UI components
 7. Add properties list in web
+8. Milestone reached: Properties are being displayed in a static list

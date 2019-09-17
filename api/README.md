@@ -8,6 +8,11 @@ To view the documentation you can use [Swagger Editor](https://editor.swagger.io
 ## Requirements
 
 - NodeJS >= 10 (including NPM)
+- [HERE developer account](https://developer.here.com/)
+
+## Features
+
+- Get a list of properties (accommodations) around a given location
 
 ## Installation
 
