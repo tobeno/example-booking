@@ -4,6 +4,6 @@ import PropertyList from "./PropertyList";
 
 describe("PropertyList", (): void => {
   it("renders without crashing", (): void => {
-    render(<PropertyList />);
+    render(<PropertyList items={[]} />);
   });
 });

@@ -4,6 +4,10 @@ import PropertyListItem from "./PropertyListItem";
 
 describe("PropertyListItem", (): void => {
   it("renders without crashing", (): void => {
-    render(<PropertyListItem />);
+    render(
+      <PropertyListItem
+        item={{ id: "hotelbeach", name: "Hotel at the beach" }}
+      />,
+    );
   });
 });

@@ -13,6 +13,7 @@ To view the documentation you can use [Swagger Editor](https://editor.swagger.io
 
 - Install dependencies using `npm install`
 - Copy the _.env.dist_ file to _.env_ to define the variables required by the dev server
+  - You will need to register in HERE API to set APP_HERE_PLACES_APP_ID and APP_HERE_PLACES_APP_CODE
 
 ## CLI
 

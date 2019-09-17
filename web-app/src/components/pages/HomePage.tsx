@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, makeStyles } from "@material-ui/core";
-import PropertyList from "../properties/PropertyList";
+import PropertyListContainer from "../properties/PropertyListContainer";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,7 +17,7 @@ const HomePage: React.FC<Props> = ({ className = "" }) => {
 
   return (
     <Container className={[classes.root, className].join(" ")} maxWidth="lg">
-      <PropertyList />
+      <PropertyListContainer />
     </Container>
   );
 };

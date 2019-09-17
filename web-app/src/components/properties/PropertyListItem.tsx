@@ -7,6 +7,7 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
+import { ApiClientProperty } from "../../clients/ApiClient";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,16 +17,17 @@ const useStyles = makeStyles(theme => ({
 
 type Props = {
   className?: string;
+  item: ApiClientProperty;
 };
 
-const PropertyListItem: React.FC<Props> = ({ className = "" }) => {
+const PropertyListItem: React.FC<Props> = ({ className = "", item }) => {
   const classes = useStyles();
 
   return (
     <Card className={[classes.root, className].join(" ")}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
-          Dummy property
+          {item.name}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           Somestreet 42
