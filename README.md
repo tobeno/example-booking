@@ -48,7 +48,7 @@ See their README.md files for further details on setup and usage.
 Follow the setup instructions in API and Web-App and start both servers using `npm run start`.
 
 Verify that the API is working correctly by accessing http://localhost:8080/v1/properties?at=48.1366,11.5771.
-If everything is setup correctly, this endpoint should return a list of properties near the given coordinated.
+If everything is setup correctly, this endpoint should return a list of properties near the given coordinates.
 
 After access the web client using http://localhost:3000/ and feel free to look around.
 There is no actual booking involved, so no worries about clicking any buttons.
