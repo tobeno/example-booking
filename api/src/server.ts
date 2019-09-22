@@ -3,6 +3,7 @@ import https from "https";
 import path from "path";
 import fs from "fs";
 import { createApp } from "./app";
+import { createServices } from "./services";
 
 const httpPort = process.env.APP_HTTP_PORT;
 const httpsKey = process.env.APP_HTTPS_KEY;
@@ -21,7 +22,7 @@ if (!httpPort && !httpsPort) {
   throw new Error("Either APP_HTTP_PORT or APP_HTTPS_PORT is required.");
 }
 
-const app = createApp();
+const app = createApp(createServices(process.env));
 
 if (httpPort) {
   const httpServer = http.createServer(app);
