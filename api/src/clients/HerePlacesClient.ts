@@ -52,7 +52,9 @@ class HerePlacesClient {
   ): Promise<Response> {
     const url = `${this.baseUrl}${path}?${querystring.stringify({
       ...parameters,
+      // eslint-disable-next-line @typescript-eslint/camelcase
       app_id: this.appId,
+      // eslint-disable-next-line @typescript-eslint/camelcase
       app_code: this.appCode,
       tf: "plain", // Use plain text in rich values like vicinity
     })}`;

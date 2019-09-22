@@ -22,7 +22,9 @@ describe("HerePlacesClient", (): void => {
         at: "48.1366,11.5771",
         cat: "hotel,accommodation",
         size: "2",
+        // eslint-disable-next-line @typescript-eslint/camelcase
         app_id: "my-id",
+        // eslint-disable-next-line @typescript-eslint/camelcase
         app_code: "my-code",
         tf: "plain",
       })
@@ -49,7 +51,9 @@ describe("HerePlacesClient", (): void => {
     const scope = nock("http://example.com")
       .get("/test")
       .query({
+        // eslint-disable-next-line @typescript-eslint/camelcase
         app_id: "my-id",
+        // eslint-disable-next-line @typescript-eslint/camelcase
         app_code: "my-code",
         tf: "plain",
       })

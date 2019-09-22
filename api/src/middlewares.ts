@@ -10,7 +10,8 @@ export const asyncMiddleware = (fn: RequestHandler): RequestHandler => (
 };
 
 export const errorHandler = (): ErrorRequestHandler => {
-  return (err: any, req: Request, res: Response, next: NextFunction): void => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  return (err, req: Request, res: Response, next: NextFunction): void => {
     res.status(500);
     res.json({
       status: 500,
