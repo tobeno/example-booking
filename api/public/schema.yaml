@@ -34,6 +34,12 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Property"
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /properties/{propertyId}/bookings:
     get:
       operationId: getPropertyBookings
@@ -58,6 +64,12 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/BookingWithUser"
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /bookings:
     get:
       operationId: getBookings
@@ -74,6 +86,38 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/BookingWithUser"
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      operationId: createBookings
+      summary: Book property
+      requestBody:
+        description: Booking to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewBookingWithUser"
+      responses:
+        "200":
+          description: Created booking
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/BookingWithUser"
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   /users/{userId}/bookings:
     get:
       operationId: getUserBookings
@@ -98,13 +142,29 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Booking"
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
 components:
   schemas:
     Booking:
+      allOf:
+        - $ref: "#/components/schemas/NewBooking"
+        - type: object
+          properties:
+            id:
+              type: string
+      example:
+        id: booking-1
+        property_id: hotelbeach
+        property_name: Hotel at the beach
+        city: Venice
+    NewBooking:
       type: object
       properties:
-        id:
-          type: string
         property_id:
           type: string
         property_name:
@@ -112,7 +172,6 @@ components:
         city:
           type: string
       example:
-        id: booking-1
         property_id: hotelbeach
         property_name: Hotel at the beach
         city: Venice
@@ -123,6 +182,27 @@ components:
           properties:
             user:
               $ref: "#/components/schemas/User"
+      example:
+        id: booking-1
+        property_id: hotelbeach
+        property_name: Hotel at the beach
+        city: Venice
+        user:
+          id: joe
+          name: Joe Fisher
+    NewBookingWithUser:
+      allOf:
+        - $ref: "#/components/schemas/NewBooking"
+        - type: object
+          properties:
+            user:
+              $ref: "#/components/schemas/NewUser"
+      example:
+        property_id: hotelbeach
+        property_name: Hotel at the beach
+        city: Venice
+        user:
+          name: Joe Fisher
     Property:
       type: object
       properties:
@@ -143,12 +223,30 @@ components:
         distance: 102
         location: "Beach\n12345 Beachington"
     User:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
+      allOf:
+        - $ref: "#/components/schemas/NewUser"
+        - type: object
+          properties:
+            id:
+              type: string
       example:
         id: joe
         name: Joe Fisher
+    NewUser:
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Joe Fisher
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+          description: Status code of error response
+          example: 404
+        message:
+          type: string
+          description: Description of error

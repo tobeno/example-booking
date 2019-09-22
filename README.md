@@ -74,3 +74,5 @@ There is no actual booking involved, so no worries about clicking any buttons.
    - Material-UI for UI components
 7. Add properties list in web
 8. Milestone reached: Properties are being displayed in a static list
+9. Update API specification
+  - Error responses and resource creation
