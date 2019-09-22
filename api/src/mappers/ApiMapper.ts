@@ -21,7 +21,7 @@ class ApiMapper {
     return new this.model.Booking({
       propertyId: booking.property_id,
       propertyName: booking.property_name,
-      city: booking.city,
+      propertyLocation: booking.property_location,
       user,
     });
   }
@@ -55,7 +55,8 @@ class ApiMapper {
       property_id: booking.propertyId,
       // eslint-disable-next-line @typescript-eslint/camelcase
       property_name: booking.propertyName,
-      city: booking.city,
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      property_location: booking.propertyLocation,
       user: this.mapUser(booking.user),
     };
   }

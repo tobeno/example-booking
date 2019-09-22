@@ -58,7 +58,7 @@ describe("ApiMapper", (): void => {
     const booking = new model.Booking({
       propertyId: "hotelbeach",
       propertyName: "Hotel at the beach",
-      city: "Anywhere",
+      propertyLocation: "Anywhere",
       user,
     });
 
@@ -68,7 +68,8 @@ describe("ApiMapper", (): void => {
       property_id: "hotelbeach",
       // eslint-disable-next-line @typescript-eslint/camelcase
       property_name: "Hotel at the beach",
-      city: "Anywhere",
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      property_location: "Anywhere",
       user: {
         id: user.id,
         name: "joe",
@@ -92,7 +93,8 @@ describe("ApiMapper", (): void => {
       property_id: "hotelbeach",
       // eslint-disable-next-line @typescript-eslint/camelcase
       property_name: "Hotel at the beach",
-      city: "Anywhere",
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      property_location: "Anywhere",
       user: {
         name: "joe",
       },
@@ -101,7 +103,7 @@ describe("ApiMapper", (): void => {
     expect(apiMapper.mapApiBooking(apiBooking)).toMatchObject({
       propertyId: "hotelbeach",
       propertyName: "Hotel at the beach",
-      city: "Anywhere",
+      propertyLocation: "Anywhere",
       user: {
         name: "joe",
       },

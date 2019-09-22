@@ -23,6 +23,6 @@ export interface ApiBooking {
   id?: string;
   property_id: string;
   property_name: string;
-  city: string;
+  property_location: string;
   user?: ApiUser;
 }

@@ -92,7 +92,7 @@ describe("App", (): void => {
     const booking = new services.model.Booking({
       propertyId: "hotelbeach",
       propertyName: "Hotel at the beach",
-      city: "Anywhere",
+      propertyLocation: "Anywhere",
       user,
     });
     await booking.save();
@@ -110,6 +110,8 @@ describe("App", (): void => {
       property_id: "hotelbeach",
       // eslint-disable-next-line @typescript-eslint/camelcase
       property_name: "Hotel at the beach",
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      property_location: "Anywhere",
       user: {
         id: expect.any(String),
         name: "joe",
@@ -125,7 +127,8 @@ describe("App", (): void => {
         property_id: "hotelbeach",
         // eslint-disable-next-line @typescript-eslint/camelcase
         property_name: "Hotel at the beach",
-        city: "Anywhere",
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        property_location: "Anywhere",
         user: {
           name: "joe",
         },
@@ -140,6 +143,8 @@ describe("App", (): void => {
       property_id: "hotelbeach",
       // eslint-disable-next-line @typescript-eslint/camelcase
       property_name: "Hotel at the beach",
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      property_location: "Anywhere",
       user: {
         id: expect.any(String),
         name: "joe",
@@ -157,7 +162,8 @@ describe("App", (): void => {
         property_id: "hotelbeach",
         // eslint-disable-next-line @typescript-eslint/camelcase
         property_name: "Hotel at the beach",
-        city: "Anywhere",
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        property_location: "Anywhere",
       })
       .expect("Content-Type", /^application\/json/)
       .expect(500);

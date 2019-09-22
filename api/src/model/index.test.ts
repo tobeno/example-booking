@@ -24,7 +24,7 @@ describe("Model", (): void => {
       const booking = new model.Booking({
         propertyId: "hotelbeach",
         propertyName: "Hotel at the beach",
-        city: "Anywhere",
+        propertyLocation: "Anywhere",
         user: new model.User({
           name: "joe",
         }),

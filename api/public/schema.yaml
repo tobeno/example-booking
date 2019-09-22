@@ -161,7 +161,7 @@ components:
         id: booking-1
         property_id: hotelbeach
         property_name: Hotel at the beach
-        city: Venice
+        property_location: Venice
     NewBooking:
       type: object
       properties:
@@ -169,12 +169,12 @@ components:
           type: string
         property_name:
           type: string
-        city:
+        property_location:
           type: string
       example:
         property_id: hotelbeach
         property_name: Hotel at the beach
-        city: Venice
+        property_location: Venice
     BookingWithUser:
       allOf:
         - $ref: "#/components/schemas/Booking"
@@ -186,7 +186,7 @@ components:
         id: booking-1
         property_id: hotelbeach
         property_name: Hotel at the beach
-        city: Venice
+        property_location: Venice
         user:
           id: joe
           name: Joe Fisher
@@ -200,7 +200,7 @@ components:
       example:
         property_id: hotelbeach
         property_name: Hotel at the beach
-        city: Venice
+        property_location: Venice
         user:
           name: Joe Fisher
     Property:
