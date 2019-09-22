@@ -7,8 +7,8 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import { ApiClientProperty } from "../../clients/ApiClient";
 import Nl2Br from "../Nl2Br";
+import { ApiProperty } from "../../types";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 type Props = {
   className?: string;
-  item: ApiClientProperty;
+  item: ApiProperty;
 };
 
 const PropertyListItem: React.FC<Props> = ({ className = "", item }) => {

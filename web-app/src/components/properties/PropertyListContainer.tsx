@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { usePosition } from "use-position";
 import PropertyList from "./PropertyList";
-import { ApiClientProperty } from "../../clients/ApiClient";
 import ApiClientContext from "../context/ApiClientContext";
 import {
   Box,
@@ -11,13 +10,14 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@material-ui/core";
+import { ApiProperty } from "../../types";
 
 type Props = {
   className?: string;
 };
 
 const PropertyListContainer: React.FC<Props> = ({ className = "" }) => {
-  const [items, setItems] = useState<Array<ApiClientProperty> | null>(null);
+  const [items, setItems] = useState<Array<ApiProperty> | null>(null);
   const [fetching, setFetching] = useState<boolean>(false);
 
   const position = usePosition();

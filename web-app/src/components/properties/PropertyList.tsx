@@ -1,11 +1,11 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 import PropertyListItem from "./PropertyListItem";
-import { ApiClientProperty } from "../../clients/ApiClient";
+import { ApiProperty } from "../../types";
 
 type Props = {
   className?: string;
-  items: Array<ApiClientProperty>;
+  items: Array<ApiProperty>;
 };
 
 const PropertyList: React.FC<Props> = ({ className = "", items }) => {
