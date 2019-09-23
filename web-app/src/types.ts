@@ -31,6 +31,8 @@ export interface ApiBooking {
   property_id: string;
   property_name: string;
   property_location: string;
+  date: string;
+  nights: number;
 }
 
 /**

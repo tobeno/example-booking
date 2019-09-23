@@ -25,6 +25,8 @@ describe("Model", (): void => {
         propertyId: "hotelbeach",
         propertyName: "Hotel at the beach",
         propertyLocation: "Anywhere",
+        date: new Date("2019-09-01"),
+        nights: 1,
         user: new model.User({
           name: "joe",
         }),

@@ -35,6 +35,8 @@ describe("ApiClient", (): void => {
             id: "user-1",
             name: "joe",
           },
+          date: "2019-09-01T00:00:00.000Z",
+          nights: "1",
         },
       }),
     );
@@ -49,6 +51,8 @@ describe("ApiClient", (): void => {
       {
         name: "joe",
       },
+      new Date("2019-09-01"),
+      1,
     );
 
     expect(booking).toHaveProperty("id");

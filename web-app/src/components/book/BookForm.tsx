@@ -10,19 +10,23 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  FormControl,
   Grid,
+  InputLabel,
+  MenuItem,
+  Select,
   TextField,
   Typography,
 } from "@material-ui/core";
+import { KeyboardDatePicker } from "@material-ui/pickers";
 import { ApiBookingWithUser, ApiProperty } from "../../types";
 import ApiClientContext from "../context/ApiClientContext";
 
 const useStyles = makeStyles(theme => ({
-  fields: {
-    display: "flex",
-    flexWrap: "wrap",
+  sectionDate: {
+    marginBottom: theme.spacing(3),
   },
-  textField: {
+  formElement: {
     width: "100%",
   },
   button: {
@@ -42,9 +46,13 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
   const [data, setData] = useState<{
     firstName: string;
     lastName: string;
+    date: Date | null;
+    nights: number;
   }>({
     firstName: "",
     lastName: "",
+    date: null,
+    nights: 1,
   });
 
   const [error, setError] = useState<string | null>(null);
@@ -73,7 +81,8 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
         ): Promise<void> => {
           e.preventDefault();
 
-          if (submitting) {
+          let date = data.date;
+          if (submitting || !date) {
             return;
           }
 
@@ -81,9 +90,14 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
 
           let booking;
           try {
-            booking = await apiClient.addBooking(property, {
-              name: `${data.firstName} ${data.lastName}`,
-            });
+            booking = await apiClient.addBooking(
+              property,
+              {
+                name: `${data.firstName} ${data.lastName}`,
+              },
+              date,
+              data.nights,
+            );
           } catch (err) {
             setError(
               "Sadly we could not process your request. Please try again in a couple of minutes.",
@@ -96,6 +110,70 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
         }}
         autoComplete="off"
       >
+        <Card className={classes.sectionDate}>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              Date
+            </Typography>
+            <Grid container spacing={3}>
+              <Grid item xs={6}>
+                <KeyboardDatePicker
+                  disableToolbar
+                  variant="inline"
+                  format="dd.mm.yyyy"
+                  minDate={new Date()}
+                  id="date"
+                  label="Date of arrival"
+                  className={classes.formElement}
+                  value={data.date}
+                  onChange={(selectedDate: Date | null): void => {
+                    setData({
+                      ...data,
+                      date: selectedDate,
+                    });
+                  }}
+                  required
+                />
+              </Grid>
+
+              <Grid item xs={6}>
+                <FormControl className={classes.formElement}>
+                  <InputLabel htmlFor="nights">Nights</InputLabel>
+                  <Select
+                    value={data.nights}
+                    onChange={(
+                      e: React.ChangeEvent<{ value: unknown }>,
+                    ): void => {
+                      const value = e.target.value;
+
+                      setData({
+                        ...data,
+                        nights: value as number,
+                      });
+                    }}
+                    inputProps={{
+                      name: "nights",
+                      id: "nights",
+                    }}
+                    required
+                  >
+                    {Array.from(
+                      Array(20),
+                      (_, index: number): number => index + 1,
+                    ).map((currentNights: number) => {
+                      return (
+                        <MenuItem key={currentNights} value={currentNights}>
+                          {currentNights}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+
         <Card>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
@@ -107,7 +185,7 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
                   id="first-name"
                   label="First name"
                   value={data.firstName}
-                  className={classes.textField}
+                  className={classes.formElement}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
                     setData({
                       ...data,
@@ -123,7 +201,7 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
                   id="last-name"
                   label="Last name"
                   value={data.lastName}
-                  className={classes.textField}
+                  className={classes.formElement}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
                     setData({
                       ...data,

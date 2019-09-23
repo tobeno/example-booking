@@ -93,6 +93,8 @@ describe("App", (): void => {
       propertyId: "hotelbeach",
       propertyName: "Hotel at the beach",
       propertyLocation: "Anywhere",
+      date: new Date("2019-09-01"),
+      nights: 1,
       user,
     });
     await booking.save();
@@ -112,6 +114,8 @@ describe("App", (): void => {
       property_name: "Hotel at the beach",
       // eslint-disable-next-line @typescript-eslint/camelcase
       property_location: "Anywhere",
+      date: "2019-09-01T00:00:00.000Z",
+      nights: 1,
       user: {
         id: expect.any(String),
         name: "joe",
@@ -129,6 +133,8 @@ describe("App", (): void => {
         property_name: "Hotel at the beach",
         // eslint-disable-next-line @typescript-eslint/camelcase
         property_location: "Anywhere",
+        date: "2019-09-01T00:00:00.000Z",
+        nights: 1,
         user: {
           name: "joe",
         },
@@ -145,6 +151,8 @@ describe("App", (): void => {
       property_name: "Hotel at the beach",
       // eslint-disable-next-line @typescript-eslint/camelcase
       property_location: "Anywhere",
+      date: "2019-09-01T00:00:00.000Z",
+      nights: 1,
       user: {
         id: expect.any(String),
         name: "joe",
@@ -164,6 +172,8 @@ describe("App", (): void => {
         property_name: "Hotel at the beach",
         // eslint-disable-next-line @typescript-eslint/camelcase
         property_location: "Anywhere",
+        date: "2019-09-01T00:00:00.000Z",
+        nights: 1,
       })
       .expect("Content-Type", /^application\/json/)
       .expect(500);

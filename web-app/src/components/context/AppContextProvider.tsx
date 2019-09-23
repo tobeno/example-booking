@@ -1,8 +1,11 @@
+import "date-fns";
 import React from "react";
 import { ThemeProvider } from "@material-ui/styles";
 import ApiClientContext from "./ApiClientContext";
 import ApiClient from "../../clients/ApiClient";
 import { Theme } from "@material-ui/core";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
 
 type Props = {
   apiClient: ApiClient;
@@ -19,7 +22,11 @@ const AppContextProvider: React.FC<Props> = ({
 }) => {
   return (
     <ApiClientContext.Provider value={apiClient}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          {children}
+        </MuiPickersUtilsProvider>
+      </ThemeProvider>
     </ApiClientContext.Provider>
   );
 };

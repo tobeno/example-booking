@@ -33,12 +33,16 @@ class ApiClient {
   async addBooking(
     property: ApiProperty,
     user: ApiInputUser,
+    date: Date,
+    nights: number,
   ): Promise<ApiBookingWithUser> {
     return this.post("/bookings", {
       property_id: property.id,
       property_name: property.name,
       property_location: property.location,
       user,
+      date: date.toISOString(),
+      nights,
     });
   }
 

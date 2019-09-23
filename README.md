@@ -78,3 +78,5 @@ There is no actual booking involved, so no worries about clicking any buttons.
    - Error responses and resource creation
 10. Add booking to API and web-app
 11. Milestone reached: Properties can be booked
+12. Add booking date to API and web-app
+

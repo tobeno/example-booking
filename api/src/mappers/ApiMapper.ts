@@ -22,6 +22,8 @@ class ApiMapper {
       propertyId: booking.property_id,
       propertyName: booking.property_name,
       propertyLocation: booking.property_location,
+      date: new Date(booking.date),
+      nights: booking.nights,
       user,
     });
   }
@@ -57,6 +59,8 @@ class ApiMapper {
       property_name: booking.propertyName,
       // eslint-disable-next-line @typescript-eslint/camelcase
       property_location: booking.propertyLocation,
+      date: booking.date.toISOString(),
+      nights: booking.nights,
       user: this.mapUser(booking.user),
     };
   }

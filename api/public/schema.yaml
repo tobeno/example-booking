@@ -162,6 +162,8 @@ components:
         property_id: hotelbeach
         property_name: Hotel at the beach
         property_location: Venice
+        date: "2019-09-01T00:00:00.000Z"
+        nights: 1
     NewBooking:
       type: object
       properties:
@@ -171,10 +173,19 @@ components:
           type: string
         property_location:
           type: string
+        date:
+          type: string
+          format: date
+        nights:
+          type: integer
+          format: int32
+          min: 1
       example:
         property_id: hotelbeach
         property_name: Hotel at the beach
         property_location: Venice
+        date: "2019-09-01T00:00:00.000Z"
+        nights: 1
     BookingWithUser:
       allOf:
         - $ref: "#/components/schemas/Booking"
@@ -187,6 +198,8 @@ components:
         property_id: hotelbeach
         property_name: Hotel at the beach
         property_location: Venice
+        date: "2019-09-01T00:00:00.000Z"
+        nights: 1
         user:
           id: joe
           name: Joe Fisher
@@ -201,6 +214,8 @@ components:
         property_id: hotelbeach
         property_name: Hotel at the beach
         property_location: Venice
+        date: "2019-09-01T00:00:00.000Z"
+        nights: 1
         user:
           name: Joe Fisher
     Property:
