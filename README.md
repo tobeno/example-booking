@@ -80,3 +80,5 @@ There is no actual booking involved, so no worries about clicking any buttons.
 11. Milestone reached: Properties can be booked
 12. Add booking date to API and web-app
 13. Add booking confirmation
+14. Add other booking endpoints to API
+15. Milestone reached: Basic goal completion

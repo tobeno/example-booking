@@ -34,6 +34,50 @@ export function createRouter({
     ),
   );
 
+  router.route("/users/:userId/bookings").get(
+    asyncMiddleware(
+      async (req: Request, res: Response): Promise<void> => {
+        if (!req.params.userId) {
+          throw new Error("No user ID given.");
+        }
+
+        const bookings = await model.Booking.find({
+          user: req.params.userId,
+        })
+          .populate("user")
+          .exec();
+
+        res.json({
+          data: bookings.map(
+            (booking: Booking): ApiBooking => apiMapper.mapBooking(booking),
+          ),
+        });
+      },
+    ),
+  );
+
+  router.route("/properties/:propertyId/bookings").get(
+    asyncMiddleware(
+      async (req: Request, res: Response): Promise<void> => {
+        if (!req.params.propertyId) {
+          throw new Error("No property ID given.");
+        }
+
+        const bookings = await model.Booking.find({
+          propertyId: req.params.propertyId,
+        })
+          .populate("user")
+          .exec();
+
+        res.json({
+          data: bookings.map(
+            (booking: Booking): ApiBooking => apiMapper.mapBooking(booking),
+          ),
+        });
+      },
+    ),
+  );
+
   router
     .route("/bookings")
     .get(

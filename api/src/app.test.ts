@@ -46,7 +46,8 @@ describe("App", (): void => {
 
   afterEach(
     async (): Promise<void> => {
-      connection.close();
+      await connection.dropDatabase();
+      await connection.close();
       nock.enableNetConnect();
     },
   );
@@ -112,6 +113,109 @@ describe("App", (): void => {
       property_id: "hotelbeach",
       // eslint-disable-next-line @typescript-eslint/camelcase
       property_name: "Hotel at the beach",
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      property_location: "Anywhere",
+      date: "2019-09-01T00:00:00.000Z",
+      nights: 1,
+      user: {
+        id: expect.any(String),
+        name: "joe",
+      },
+    });
+  });
+
+  it("handles GET /v1/properties/:propertyId/bookings requests", async (): Promise<
+    void
+  > => {
+    const user = new services.model.User({ name: "joe" });
+    await user.save();
+
+    const booking = new services.model.Booking({
+      propertyId: "hotelshore",
+      propertyName: "Hotel at the shore",
+      propertyLocation: "Anywhere",
+      date: new Date("2019-09-01"),
+      nights: 1,
+      user,
+    });
+    await booking.save();
+
+    const otherBooking = new services.model.Booking({
+      propertyId: "hotelcity",
+      propertyName: "Hotel in the city",
+      propertyLocation: "Anywhere",
+      date: new Date("2019-09-01"),
+      nights: 1,
+      user,
+    });
+    await otherBooking.save();
+
+    const response = await request(app)
+      .get("/v1/properties/hotelshore/bookings")
+      .expect("Content-Type", /^application\/json/);
+
+    expect(response.body).toHaveProperty("data");
+    expect(response.body.data).toBeInstanceOf(Array);
+    expect(response.body.data.length).toBe(1);
+    expect(response.body.data[0]).toMatchObject({
+      id: expect.any(String),
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      property_id: "hotelshore",
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      property_name: "Hotel at the shore",
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      property_location: "Anywhere",
+      date: "2019-09-01T00:00:00.000Z",
+      nights: 1,
+      user: {
+        id: expect.any(String),
+        name: "joe",
+      },
+    });
+  });
+
+  it("handles GET /v1/users/:userId/bookings requests", async (): Promise<
+    void
+  > => {
+    const user = new services.model.User({ name: "joe" });
+    await user.save();
+
+    const otherUser = new services.model.User({ name: "jane" });
+    await otherUser.save();
+
+    const booking = new services.model.Booking({
+      propertyId: "hotelstreet",
+      propertyName: "Hotel at the street",
+      propertyLocation: "Anywhere",
+      date: new Date("2019-09-01"),
+      nights: 1,
+      user,
+    });
+    await booking.save();
+
+    const otherBooking = new services.model.Booking({
+      propertyId: "hotelstreet",
+      propertyName: "Hotel at the street",
+      propertyLocation: "Anywhere",
+      date: new Date("2019-09-01"),
+      nights: 1,
+      user: otherUser,
+    });
+    await otherBooking.save();
+
+    const response = await request(app)
+      .get(`/v1/users/${user.id}/bookings`)
+      .expect("Content-Type", /^application\/json/);
+
+    expect(response.body).toHaveProperty("data");
+    expect(response.body.data).toBeInstanceOf(Array);
+    expect(response.body.data.length).toBe(1);
+    expect(response.body.data[0]).toMatchObject({
+      id: expect.any(String),
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      property_id: "hotelstreet",
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      property_name: "Hotel at the street",
       // eslint-disable-next-line @typescript-eslint/camelcase
       property_location: "Anywhere",
       date: "2019-09-01T00:00:00.000Z",
