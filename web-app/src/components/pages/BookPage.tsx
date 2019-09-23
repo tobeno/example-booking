@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, makeStyles } from "@material-ui/core";
+import { Container, makeStyles, Typography } from "@material-ui/core";
 import BookForm from "../book/BookForm";
 import { RouteChildrenProps } from "react-router";
 import { Redirect } from "react-router-dom";
@@ -29,7 +29,9 @@ const BookPage: React.FC<Props> = ({
 
   return (
     <Container className={[classes.root, className].join(" ")} maxWidth="sm">
-      <h1>Your Stay</h1>
+      <Typography variant="h4" component="h1">
+        Your Stay
+      </Typography>
       <PropertyListItem item={state.property} className={classes.property} />
       <BookForm property={state.property} />
     </Container>

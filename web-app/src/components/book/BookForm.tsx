@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
+  Box,
   Button,
   Card,
   CardContent,
@@ -21,18 +21,14 @@ import {
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import { ApiBookingWithUser, ApiProperty } from "../../types";
 import ApiClientContext from "../context/ApiClientContext";
+import ButtonLink from "../ButtonLink";
 
 const useStyles = makeStyles(theme => ({
-  sectionDate: {
+  section: {
     marginBottom: theme.spacing(3),
   },
   formElement: {
     width: "100%",
-  },
-  button: {
-    display: "block",
-    marginLeft: "auto",
-    marginTop: theme.spacing(3),
   },
 }));
 
@@ -64,13 +60,9 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
     throw new Error("ApiClient not defined in context.");
   }
 
-  const handleDialogClose = (): void => {
+  const handleErrorDialogClose = (): void => {
     setError(null);
   };
-
-  if (booking) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <>
@@ -110,7 +102,7 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
         }}
         autoComplete="off"
       >
-        <Card className={classes.sectionDate}>
+        <Card className={classes.section}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               Date
@@ -174,7 +166,7 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className={classes.section}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               Personal Information
@@ -215,24 +207,52 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
           </CardContent>
         </Card>
 
-        <Button
-          className={classes.button}
-          color="primary"
-          disabled={submitting}
-          type="submit"
-        >
-          Finish
-        </Button>
+        <Box display="flex" justifyContent="flex-end">
+          <ButtonLink
+            color="secondary"
+            disabled={submitting}
+            to={{
+              pathname: "/",
+            }}
+          >
+            Back
+          </ButtonLink>
+          <Button color="primary" disabled={submitting} type="submit">
+            Finish
+          </Button>
+        </Box>
       </form>
-      <Dialog open={!!error} onClose={handleDialogClose}>
+
+      <Dialog open={!!error} onClose={handleErrorDialogClose}>
         <DialogTitle>{"Request not successful"}</DialogTitle>
         <DialogContent>
           <DialogContentText>{error}</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDialogClose} color="primary">
+          <Button onClick={handleErrorDialogClose} color="primary">
             Continue
           </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={!!booking}>
+        <DialogTitle>{"Booking successful"}</DialogTitle>
+        <DialogContent>
+          {booking && (
+            <DialogContentText>
+              Thank you for booking a stay at {booking.property_name}.
+            </DialogContentText>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <ButtonLink
+            color="primary"
+            to={{
+              pathname: "/",
+            }}
+          >
+            Continue
+          </ButtonLink>
         </DialogActions>
       </Dialog>
     </>
