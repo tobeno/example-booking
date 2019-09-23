@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Button,
   Card,
   CardActions,
   CardContent,
@@ -9,6 +8,7 @@ import {
 } from "@material-ui/core";
 import Nl2Br from "../Nl2Br";
 import { ApiProperty } from "../../types";
+import ButtonLink from "../ButtonLink";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,11 +23,16 @@ const useStyles = makeStyles(theme => ({
 }));
 
 type Props = {
+  bookable?: boolean;
   className?: string;
   item: ApiProperty;
 };
 
-const PropertyListItem: React.FC<Props> = ({ className = "", item }) => {
+const PropertyListItem: React.FC<Props> = ({
+  bookable = false,
+  className = "",
+  item,
+}) => {
   const classes = useStyles();
 
   return (
@@ -41,9 +46,20 @@ const PropertyListItem: React.FC<Props> = ({ className = "", item }) => {
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary">
-          Book now
-        </Button>
+        {bookable ? (
+          <ButtonLink
+            size="small"
+            color="primary"
+            to={{
+              pathname: "/book",
+              state: { property: item },
+            }}
+          >
+            Book now
+          </ButtonLink>
+        ) : (
+          <span />
+        )}
         {item.distance && (
           <Typography
             className={classes.cardDistance}

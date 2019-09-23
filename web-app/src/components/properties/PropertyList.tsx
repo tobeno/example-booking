@@ -13,7 +13,7 @@ const PropertyList: React.FC<Props> = ({ className = "", items }) => {
     <Grid container spacing={3} className={className}>
       {items.map(item => (
         <Grid key={item.id} item xs={12} md={6}>
-          <PropertyListItem item={item} />
+          <PropertyListItem bookable item={item} />
         </Grid>
       ))}
     </Grid>

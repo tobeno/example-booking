@@ -75,4 +75,6 @@ There is no actual booking involved, so no worries about clicking any buttons.
 7. Add properties list in web
 8. Milestone reached: Properties are being displayed in a static list
 9. Update API specification
-  - Error responses and resource creation
+   - Error responses and resource creation
+10. Add booking to API and web-app
+11. Milestone reached: Properties can be booked
