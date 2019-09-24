@@ -113,7 +113,7 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
                 <KeyboardDatePicker
                   disableToolbar
                   variant="inline"
-                  format="dd.mm.yyyy"
+                  format="dd.MM.yyyy"
                   minDate={new Date()}
                   id="date"
                   label="Date of arrival"
