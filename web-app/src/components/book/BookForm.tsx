@@ -94,6 +94,7 @@ const BookForm: React.FC<Props> = ({ property, className = "" }) => {
             setError(
               "Sadly we could not process your request. Please try again in a couple of minutes.",
             );
+            setSubmitting(false);
 
             return;
           }
