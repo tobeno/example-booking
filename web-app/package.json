@@ -8,11 +8,8 @@
     "@material-ui/core": "^4.4.2",
     "@material-ui/icons": "^4.4.1",
     "@material-ui/pickers": "^3.2.6",
-    "@types/jest": "24.0.18",
-    "@types/react": "16.9.2",
-    "@types/react-dom": "16.9.0",
     "date-fns": "^2.2.1",
-    "qs": "^6.8.0",
+    "qs": "^6.9.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
@@ -22,12 +19,14 @@
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test",
+    "check": "npm run lint:fix; npm run type-check",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "npm run lint --fix",
     "prettier": "prettier * src/** --write",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build": "react-scripts build",
+    "build:watch": "cross-env NODE_ENV=development webpack . --config node_modules/react-scripts/config/webpack.config.js -w",
     "eject": "react-scripts eject"
   },
   "browserslist": {
@@ -45,13 +44,19 @@
   "devDependencies": {
     "@testing-library/react": "^9.1.4",
     "@types/date-fns": "^2.6.0",
+    "@types/jest": "24.0.18",
     "@types/node": "^12.7.5",
+    "@types/qs": "^6.5.3",
+    "@types/react": "16.9.2",
+    "@types/react-dom": "16.9.0",
     "@types/react-router-dom": "^4.3.5",
     "@types/testing-library__react": "^9.1.1",
+    "cross-env": "^6.0.3",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.0",
     "jest-fetch-mock": "^2.1.2",
     "prettier": "^1.18.2",
-    "typescript": "^3.5.3 && <3.6.0"
+    "typescript": "^3.5.3 && <3.6.0",
+    "webpack-cli": "^3.3.9"
   }
 }

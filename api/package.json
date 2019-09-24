@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon --exec babel-node --extensions \".ts,.tsx\" -r node_modules/dotenv/config src/server.ts",
     "test": "node -r dotenv/config node_modules/jest/bin/jest",
+    "check": "npm run lint:fix; npm run type-check",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "npm run lint --fix",
     "prettier": "prettier * etc/** public/** src/** --write",
@@ -29,6 +30,7 @@
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.1",
     "@types/jest": "^24.0.18",
+    "@types/mongoose": "^5.5.20",
     "@types/nock": "^11.1.0",
     "@types/node": "^12.7.5",
     "@types/request": "^2.48.3",
@@ -51,6 +53,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "mongoose": "^5.7.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   }
