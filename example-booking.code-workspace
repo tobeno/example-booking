@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "example-booking",
+			"path": "."
+		},
+		{
+			"name": "api",
+			"path": "api"
+		},
+		{
+			"name": "web-app",
+			"path": "web-app"
+		}
+	],
+	"settings": {}
+}
