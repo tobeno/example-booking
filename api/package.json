@@ -15,7 +15,8 @@
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
-    "serve": "node dist/server.js"
+    "serve": "node dist/server.js",
+    "ssl:regenerate": "openssl req -out etc/ssl/server.cert -newkey rsa:2048 -x509 -days 365 -nodes -keyout etc/ssl/server.key -config etc/ssl/san.cnf"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",

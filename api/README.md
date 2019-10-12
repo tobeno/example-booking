@@ -36,6 +36,7 @@ Available commands:
 - lint: Run linter against project files to check for code issues
 - prettier: Reformat all project files using prettier
 - test: Run all available tests
+- ssl:regenerate: Update the SSL certificate used locally
 
 ## Development
 
