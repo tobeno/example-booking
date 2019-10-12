@@ -5,6 +5,7 @@ import AppContextProvider from "./components/context/AppContextProvider";
 import App from "./components/App";
 import { apiClient } from "./services";
 import theme from "./theme";
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <AppContextProvider apiClient={apiClient} theme={theme}>
@@ -12,3 +13,5 @@ ReactDOM.render(
   </AppContextProvider>,
   document.getElementById("root"),
 );
+
+serviceWorker.register();
