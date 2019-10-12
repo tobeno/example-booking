@@ -22,6 +22,8 @@
     "check": "npm run lint:fix; npm run type-check",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "npm run lint --fix",
+    "serve": "serve build --ssl-cert etc/ssl/server.cert --ssl-key etc/ssl/server.key",
+    "ssl:regenerate": "openssl req -out etc/ssl/server.cert -newkey rsa:2048 -x509 -days 365 -nodes -keyout etc/ssl/server.key -config etc/ssl/san.cnf",
     "prettier": "prettier * src/** --write",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
@@ -56,6 +58,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "jest-fetch-mock": "^2.1.2",
     "prettier": "^1.18.2",
+    "serve": "^11.2.0",
     "typescript": "^3.5.3 && <3.6.0",
     "webpack-cli": "^3.3.9"
   }
