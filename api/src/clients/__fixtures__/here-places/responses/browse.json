@@ -15,7 +15,7 @@
           "system": "places"
         },
         "icon": "https://download.vcdn.cit.data.here.com/p/d/places2_stg/icons/categories/01.icon",
-        "vicinity": "Marienplatz<br/>80331 Munich",
+        "vicinity": "Marienplatz\n80331 Munich",
         "having": [],
         "type": "urn:nlp-types:place",
         "href": "https://places.cit.api.here.com/places/v1/places/27660lbi-3c76b74cf52706ab7ffab1da9989d0ac;context=Zmxvdy1pZD1kNWIxODRjNC04ZjhkLTU3NGUtYWY0NC1lMGQ4ZmZiNWYwODJfMTU2ODcyMTkxMzgzNF84MzI2XzcwMzUmcmFuaz0w?app_id=Te2foJyXNryBFyg09a2A&app_code=NrLohl164Mwwenkc_RmT7w",
@@ -40,7 +40,7 @@
           "system": "places"
         },
         "icon": "https://download.vcdn.cit.data.here.com/p/d/places2_stg/icons/categories/01.icon",
-        "vicinity": "Sparkassenstraße<br/>80331 Munich",
+        "vicinity": "Sparkassenstraße\n80331 Munich",
         "having": [],
         "type": "urn:nlp-types:place",
         "href": "https://places.cit.api.here.com/places/v1/places/276u281z-5cb1a4058f834bc6b1061c36b400162b;context=Zmxvdy1pZD1kNWIxODRjNC04ZjhkLTU3NGUtYWY0NC1lMGQ4ZmZiNWYwODJfMTU2ODcyMTkxMzgzNF84MzI2XzcwMzUmcmFuaz0x?app_id=Te2foJyXNryBFyg09a2A&app_code=NrLohl164Mwwenkc_RmT7w",
@@ -53,7 +53,7 @@
       "location": {
         "position": [48.1366, 11.5771],
         "address": {
-          "text": "Viktualienmarkt<br/>Altstadt, 80331 Munich<br/>Germany",
+          "text": "Viktualienmarkt\nAltstadt, 80331 Munich\nGermany",
           "street": "Viktualienmarkt",
           "postalCode": "80331",
           "district": "Altstadt",
