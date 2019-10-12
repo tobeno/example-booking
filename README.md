@@ -53,6 +53,11 @@ If everything is setup correctly, this endpoint should return a list of properti
 After access the web client using http://localhost:3000/ and feel free to look around.
 There is no actual booking involved, so no worries about clicking any buttons.
 
+## SSL Certificate
+
+For development this project includes a self-signed certificate under _etc/ssl_.
+To generate a new verion of this certificate run `openssl req -out etc/ssl/server.cert -newkey rsa:2048 -x509 -days 365 -nodes -keyout etc/ssl/server.key -config etc/ssl/san.cnf`.
+
 ## Development History
 
 1. Verify requirements
@@ -82,3 +87,4 @@ There is no actual booking involved, so no worries about clicking any buttons.
 13. Add booking confirmation
 14. Add other booking endpoints to API
 15. Milestone reached: Basic goal completion
+16. Polishing

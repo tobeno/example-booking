@@ -42,7 +42,7 @@ Available commands:
 
 To start development use the dev server by running `npm run start`.
 By default this server will run under port 8080 (HTTP) and 8443 (HTTPS).
-The HTTPS server uses a self signed certificate located under _api/etc/ssl_.
+The HTTPS server uses a self signed certificate located under _etc/ssl_.
 
 To debug the server, start the server in debug mode using `npm run start -- --inspect`
 and connect using the Google Chrome Node DevTools available under chrome://inspect.
