@@ -5,7 +5,7 @@
   "main": "src/index.tsx",
   "dependencies": {
     "@date-io/date-fns": "2.6.1",
-    "@material-ui/core": "4.9.14",
+    "@material-ui/core": "4.10.0",
     "@material-ui/icons": "4.9.1",
     "@material-ui/pickers": "3.2.10",
     "date-fns": "2.13.0",
